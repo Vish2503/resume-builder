@@ -1,0 +1,115 @@
+/*https://medium.com/@karthikricssion/how-to-design-a-printable-html-page-layout-802bc9ea61dd*/
+.resume {
+    margin: 0;
+}
+.sheet {
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    page-break-after: always;
+}
+@media screen {
+    .sheet {
+        background: white;
+        box-shadow: 0 .5mm 2mm rgba(0,0,0,.3); 
+        margin: 5mm auto;
+    }
+}
+.resume.A4 .sheet { 
+    width: 210mm; 
+    height: 296mm 
+}
+
+@page {
+    size: A4;
+    margin: 0
+}
+@media print {
+    .resume.A4, .resume.A5.landscape { 
+        width: 210mm 
+    }
+}
+
+.resume .sheet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10mm;
+}
+
+.resume .main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.resume .header {
+    text-align: center;
+}
+
+.resume .header .name {
+    margin: 0;
+}
+
+.resume .header .links {
+    font-weight: 100;
+    margin-bottom: 0;
+}
+
+.resume .section {
+    width: 100%;
+}
+
+.resume .section * {
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+}
+
+.resume .section .title {
+    font-weight: 200;
+    border-bottom: 1px solid black;
+    /*margin-bottom: 8px;*/
+    margin-bottom: 0px;
+}
+
+.resume .section .item {
+    /*margin-bottom: 12px;*/
+    margin-bottom: 0px;
+}
+
+.resume .section .item:last-of-type {
+    margin-bottom: 0;
+}
+
+.resume .section .sub-title {
+    font-weight: 400;
+}
+
+.resume .section .item .sub-title-and-timeline {
+    display: flex;
+}
+.resume .section .item .sub-title {
+    flex-grow: 1;
+}
+
+.resume .section .item .timeline {
+    text-align: right;
+    width: 20%;
+}
+
+.resume .section .timeline:empty {
+    width: 0%;
+}
+
+.resume .section ul {
+    margin-left: 20px;
+}
+
+.skill p {
+    display: inline-block;
+}
